@@ -233,7 +233,7 @@
     $("today-left").innerHTML = `<span class="curr">${info.left < 0 ? "−$" : "$"}</span>${money(Math.abs(info.left)).slice(1)}`;
     $("today-cycle-word").textContent = word;
     $("spends-cycle-word").textContent = word;
-    $("today-daily").textContent = `${money(Math.max(info.daily, 0))} a day`;
+    $("today-daily").innerHTML = `<strong>${money(Math.max(info.daily, 0))}</strong> a day`;
     $("today-daysleft").textContent = daysLeftLabel(Math.max(info.daysLeft, 0));
     $("today-payday-line").textContent = `Payday ${DAY_NAMES[state.settings.payday]}`;
     const pct = info.total > 0 ? Math.min(100, (info.spent / info.total) * 100) : 0;

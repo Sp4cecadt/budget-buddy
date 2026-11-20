@@ -656,3 +656,6 @@ button { cursor: pointer; }
 
 /* Greeting amount matches other light green amounts */
 .greet .msg strong { color: var(--green); }
+
+/* "a day" line: only the amount is light green, rest stays grey */
+#view-today .sub-hero strong { color: var(--green); }
