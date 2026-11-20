@@ -677,3 +677,23 @@ button { cursor: pointer; }
 
 /* Fix: hidden greeting banner was still showing as an empty box */
 .greet[hidden] { display: none !important; }
+
+/* Main screen: amount and the three lines under it centred */
+#view-today .hero-money,
+#view-today .sub-hero { text-align: center; }
+/* Main screen: gap between payday line and the bar */
+#view-today .progress { margin-top: 28px; }
+
+/* Main screen: Add a spend button stays put, list scrolls above it */
+html, body { height: 100%; overflow: hidden; }
+#app { height: 100vh; height: 100dvh; min-height: 0; overflow: hidden; }
+.view { overflow-y: auto; -webkit-overflow-scrolling: touch; }
+#view-today { overflow: hidden; }
+#view-today .spends { overscroll-behavior: contain; }
+#view-today .btn-row { flex-shrink: 0; }
+
+/* Add a spend: quick taps never zoom */
+#sheet-add, #sheet-add * { touch-action: manipulation; }
+
+/* Settings: selected How often option in light green */
+.segment button.on { background: var(--green); color: #fff; box-shadow: none; }
