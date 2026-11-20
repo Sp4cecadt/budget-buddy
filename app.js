@@ -367,6 +367,7 @@
     ).join("");
     const info = periodInfo();
     const after = $("add-after");
+    after.classList.remove("warn");
     if (info && cents > 0) {
       const left = info.left - cents;
       const days = Math.max(info.daysLeft, 1);
@@ -410,7 +411,9 @@
     const category = addDraft.category;
     if (amount <= 0) return;
     if (!category) {
-      $("add-after").textContent = "Pick what it was for, then save.";
+      const warn = $("add-after");
+      warn.innerHTML = '<span class="warn-ic">!</span>Tap what it was for first, then press Add';
+      warn.classList.add("warn");
       return;
     }
     pendingAmount = amount;
