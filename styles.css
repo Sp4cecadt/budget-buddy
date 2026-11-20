@@ -653,3 +653,6 @@ button { cursor: pointer; }
 }
 #view-settings .nav .back svg { width: 28px; height: 28px; stroke-width: 2.4; margin-right: -2px; }
 #view-settings .nav .back:active { opacity: 0.5; }
+
+/* Greeting amount matches other light green amounts */
+.greet .msg strong { color: var(--green); }
