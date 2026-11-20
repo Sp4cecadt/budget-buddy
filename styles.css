@@ -130,7 +130,7 @@ button { cursor: pointer; }
   font-weight: 740;
   letter-spacing: -0.05em;
   line-height: 0.95;
-  color: var(--green-dark);
+  color: var(--green);
   font-variant-numeric: tabular-nums;
 }
 .hero-money .curr {
@@ -637,4 +637,4 @@ button { cursor: pointer; }
 }
 
 /* Settings amount matches the main screen amount */
-#set-amount { color: var(--green-dark); }
+#set-amount { color: var(--green); }
