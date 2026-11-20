@@ -638,3 +638,8 @@ button { cursor: pointer; }
 
 /* Settings amount matches the main screen amount */
 #set-amount { color: var(--green); }
+
+/* Slightly bigger text (from approved mockup) */
+.date-line { font-size: 17px; }
+.sub-hero { font-size: 19px; }
+.progress .meta { font-size: 14px; }
