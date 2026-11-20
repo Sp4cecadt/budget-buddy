@@ -674,3 +674,6 @@ button { cursor: pointer; }
   display: flex; align-items: center; justify-content: center;
   font-size: 16px; font-weight: 800;
 }
+
+/* Fix: hidden greeting banner was still showing as an empty box */
+.greet[hidden] { display: none !important; }
