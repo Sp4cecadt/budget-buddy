@@ -640,6 +640,6 @@ button { cursor: pointer; }
 #set-amount { color: var(--green); }
 
 /* Slightly bigger text (from approved mockup) */
-.date-line { font-size: 17px; }
-.sub-hero { font-size: 19px; }
-.progress .meta { font-size: 14px; }
+#view-today .date-line { font-size: 17px; }
+#view-today .sub-hero { font-size: 19px; }
+#view-today .progress .meta { font-size: 14px; }
