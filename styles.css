@@ -425,6 +425,7 @@ button { cursor: pointer; }
   line-height: 1;
   padding: 8px 0 10px;
   font-variant-numeric: tabular-nums;
+  color: var(--green);
 }
 .enter-amt .curr {
   font-size: 0.48em;
