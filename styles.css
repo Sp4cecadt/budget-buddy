@@ -635,3 +635,6 @@ button { cursor: pointer; }
 @media (min-width: 430px) {
   :root { --pad: 22px; }
 }
+
+/* Settings amount matches the main screen amount */
+#set-amount { color: var(--green-dark); }
