@@ -235,7 +235,10 @@
     $("spends-cycle-word").textContent = word;
     $("today-daily").innerHTML = `<strong>${money(Math.max(info.daily, 0))}</strong> a day`;
     $("today-daysleft").textContent = daysLeftLabel(Math.max(info.daysLeft, 0));
-    $("today-payday-line").textContent = `Payday ${DAY_NAMES[state.settings.payday]}`;
+    {
+      const pd = parseISO(info.next);
+      $("today-payday-line").textContent = `Payday ${DAY_NAMES[pd.getDay()]} ${pd.getDate()} ${MONTHS[pd.getMonth()].slice(0, 3)}`;
+    }
     const pct = info.total > 0 ? Math.min(100, (info.spent / info.total) * 100) : 0;
     $("today-fill").style.width = pct + "%";
     $("today-spent").textContent = `${money(info.spent)} spent`;
@@ -376,7 +379,7 @@
     } else {
       after.textContent = "";
     }
-    const label = cents ? `Add ${money(cents)}` : "Add";
+    const label = "Add Expense";
     $("add-save").textContent = label;
   }
 

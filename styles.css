@@ -697,3 +697,6 @@ html, body { height: 100%; overflow: hidden; }
 
 /* Settings: selected How often option in light green */
 .segment button.on { background: var(--green); color: #fff; box-shadow: none; }
+
+/* Add a spend: bigger Add Expense button text */
+#add-save { font-size: 21px; }
