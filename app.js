@@ -10,7 +10,7 @@
     { n: 6, label: "Sat" },
     { n: 0, label: "Sun" },
   ];
-  const CATS = ["Groceries", "Petrol", "Bills", "Other"];
+  const CATS = ["Groceries", "Bingo", "Bills", "Other"];
   const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
   const $ = (id) => document.getElementById(id);
