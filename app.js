@@ -107,6 +107,67 @@
     localStorage.setItem(STORE, JSON.stringify(state));
   }
 
+  function backupFilename() {
+    return `budget-buddy-backup-${todayISO()}.txt`;
+  }
+
+  function looksLikeBackup(data) {
+    return data && typeof data === "object" && Array.isArray(data.spends);
+  }
+
+  function downloadBackupFile(file) {
+    const url = URL.createObjectURL(file);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = file.name;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1500);
+  }
+
+  async function saveBackup() {
+    const file = new File([JSON.stringify(state, null, 2)], backupFilename(), {
+      type: "text/plain",
+    });
+    try {
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        await navigator.share({ files: [file], title: "Budget Buddy backup" });
+        return;
+      }
+    } catch (err) {
+      if (err && err.name === "AbortError") return;
+    }
+    downloadBackupFile(file);
+  }
+
+  function loadBackup(file) {
+    const reader = new FileReader();
+    reader.onload = () => {
+      let data;
+      try {
+        data = JSON.parse(String(reader.result || ""));
+      } catch {
+        alert("That file doesn’t look like a Budget Buddy backup.");
+        return;
+      }
+      if (!looksLikeBackup(data)) {
+        alert("That file doesn’t look like a Budget Buddy backup.");
+        return;
+      }
+      if (!confirm("This will replace your current budget with the backup. Continue?")) return;
+      state = Object.assign(defaultState(), data);
+      state._edit = null;
+      state._setup = null;
+      save();
+      render();
+    };
+    reader.onerror = () => {
+      alert("That file doesn’t look like a Budget Buddy backup.");
+    };
+    reader.readAsText(file);
+  }
+
   let state = load();
   let addDraft = { keys: "", category: "" };
   let pendingAmount = 0;
@@ -579,6 +640,14 @@
       state._edit = null;
       save();
       renderToday();
+    });
+
+    on($("backup-save"), "click", () => { saveBackup(); });
+    on($("backup-load"), "click", () => $("backup-file").click());
+    on($("backup-file"), "change", (e) => {
+      const file = e.target.files && e.target.files[0];
+      e.target.value = "";
+      if (file) loadBackup(file);
     });
 
     // Add sheet

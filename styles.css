@@ -679,6 +679,9 @@ button { cursor: pointer; }
 /* Fix: hidden greeting banner was still showing as an empty box */
 .greet[hidden] { display: none !important; }
 
+/* Main screen: drop the date-through-spends block by ~10 mm */
+#view-today .row-between { margin-top: 38px; }
+
 /* Main screen: amount and the three lines under it centred */
 #view-today .hero-money,
 #view-today .sub-hero { text-align: center; }
@@ -701,3 +704,16 @@ html, body { height: 100%; overflow: hidden; }
 
 /* Add a spend: bigger Add Expense button text */
 #add-save { font-size: 21px; }
+
+/* Settings: backup and restore at the bottom */
+#view-settings .backup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 24px;
+}
+#view-settings .backup .label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+}
