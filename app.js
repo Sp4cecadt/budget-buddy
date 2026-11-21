@@ -310,8 +310,8 @@
     if (!list.length) {
       box.innerHTML = `<div class="empty">No spends yet this ${word}.</div>`;
     } else {
-      box.innerHTML = list.map((s) => `
-        <button type="button" class="spend" data-id="${s.id}">
+      box.innerHTML = list.map((s, i) => `
+        <button type="button" class="spend${i > 0 && String(s.date).slice(0, 10) !== String(list[i - 1].date).slice(0, 10) ? " day-change" : ""}" data-id="${s.id}">
           <div>
             <div class="what">${escapeHtml(s.category)}</div>
             <div class="when">${formatShortDate(s.date)}</div>
