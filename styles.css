@@ -722,3 +722,6 @@ html, body { height: 100%; overflow: hidden; }
 
 /* Thin light green line where the day changes in the spends list */
 .spend.day-change { border-top: 1px solid var(--green); }
+
+/* Main screen date: crisp, solid text (standard weight, darker grey) */
+#view-today .date-line { font-weight: 600; color: #48484A; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
