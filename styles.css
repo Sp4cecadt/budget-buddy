@@ -725,3 +725,8 @@ html, body { height: 100%; overflow: hidden; }
 
 /* Main screen date: crisp, solid text (standard weight, darker grey) */
 #view-today .date-line { font-weight: 600; color: #48484A; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+/* iOS 26/27 Home Screen apps paint a frosted blur over the top edge unless an
+   opaque, full-width fixed bar sits there. This solid strip stops that blur. */
+.top-edge { position: fixed; top: 0; left: 0; right: 0; height: calc(var(--safe-top) + 12px); background: var(--bg); z-index: 10; pointer-events: none; }
+.view { padding-top: 14px; }
