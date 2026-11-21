@@ -718,3 +718,4 @@ html, body { height: 100%; overflow: hidden; }
 /* Settings cog: bigger, light green */
 #btn-settings { color: var(--green); }
 #btn-settings svg { width: 30px; height: 30px; }
+#view-settings .backup-help { margin: -2px 4px 8px; font-size: 13px; line-height: 1.45; color: var(--muted); }
