@@ -679,9 +679,6 @@ button { cursor: pointer; }
 /* Fix: hidden greeting banner was still showing as an empty box */
 .greet[hidden] { display: none !important; }
 
-/* Main screen: drop the date-through-spends block by ~10 mm */
-#view-today .row-between { margin-top: 38px; }
-
 /* Main screen: amount and the three lines under it centred */
 #view-today .hero-money,
 #view-today .sub-hero { text-align: center; }
